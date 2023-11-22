@@ -1,0 +1,80 @@
+[versions]
+# kotlin
+kotlin = "1.9.20"
+kotlinx = "1.7.3"
+serialization = "1.6.1"
+reflect = "1.8.10"
+
+# dependencies
+mccoroutine = "2.13.0"
+
+# plugins
+shadow = "8.1.1"
+
+# sql
+sqldelight = "2.0.0"
+
+# ktor
+ktor = "2.3.6"
+netty = "2.3.6"
+
+# json
+guava = "31.1-jre"
+gson = "2.10.1"
+
+# database
+mongo = "4.11.0"
+redis = "5.0.0-alpha2"
+
+# paperweight
+paperweight = "1.5.5"
+runpaper = "2.2.0"
+
+# util
+kspigot = "1.20.1"
+protocollib = "5.1.0"
+
+[libraries]
+# kotlin
+standard-library = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx" }
+serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }
+reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "reflect" }
+
+# minecraft
+mccoroutine-core = { module = "com.github.shynixn.mccoroutine:mccoroutine-bukkit-core", version.ref = "mccoroutine" }
+mccoroutine-api = { module = "com.github.shynixn.mccoroutine:mccoroutine-bukkit-api", version.ref = "mccoroutine" }
+
+# sql
+jdbc-driver = { module = "app.cash.sqldelight:jdbc-driver", version.ref = "sqldelight" }
+
+# json
+guava = { module = "com.google.guava:guava", version.ref = "guava" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+
+# ktor
+ktor-core = { module = "io.ktor:ktor-server-core", version.ref = "ktor" }
+ktor-netty = { module = "io.ktor:ktor-server-netty", version.ref = "netty" }
+
+# database
+mongo = { module = "org.mongodb:mongodb-driver-kotlin-coroutine", version.ref = "mongo" }
+redis = { module = "redis.clients:jedis", version.ref = "redis" }
+
+# util
+kspigot = { module = "net.axay:kspigot", version.ref = "kspigot" }
+protocollib = { module = "com.comphenix.protocol:ProtocolLib", version.ref = "protocollib" }
+
+
+[plugins]
+kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+
+shadow = { id = "com.github.johnrengelman.shadow", version.ref = "shadow" }
+sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
+paperweight = { id = "io.papermc.paperweight.userdev", version.ref = "paperweight" }
+runpaper = { id = "xyz.jpenilla.run-paper", version.ref = "runpaper" }
+
+[bundles]
+paperweight = ["coroutines", "mccoroutine-api", "mccoroutine-core", "standard-library", "serialization", "reflect", "kspigot", "protocollib"]
+database = ["jdbc-driver", "guava", "gson", "mongo", "redis"]
+server = ["ktor-core", "ktor-netty"]
